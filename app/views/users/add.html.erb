@@ -1,0 +1,48 @@
+
+<div align="right">
+<%= link_to("HOME", {:controller => 'users', :action => 'menu'} )%>
+
+<%= link_to("BACK", {:controller => 'users',:action => 'home'})%>
+</div>
+<div class="Add user">
+	<h2 align="center">Add User</h2>
+	
+	<%= form_for(:user, :url => {:action => 'create'}) do |f| %>
+	<table summary="Add user" align="center">
+		<tr>
+			<th>Name</th>
+			<td><%= f.text_field(:name)%></td>
+		</tr>
+		
+		<tr>
+			<th>Class</th>
+			<td><%= f.text_field(:std)%></td>
+		</tr>
+		<tr>
+			<th>Section</th>
+			<td><%= f.text_field(:sec)%></td>
+		</tr>
+		<tr>
+			<th>Email Id</th>
+			<td><%= f.text_field(:email)%></td>
+		</tr>
+		<tr>
+			<th>Mobile No.</th>
+			<td><%= f.text_field(:mob)%></td>
+		</tr>
+		<tr>
+			<th>Password</th>
+			<td><%= f.password_field(:password)%></td>
+		</tr>
+		
+		</table>
+		<div class="form_buttons" align="center">
+			<%= submit_tag("Add User")%>
+		</div>
+	
+	<% end %>
+</div>
+<div align='center'>
+<%= link_to 'Sign_out', destroy_user_session_path, :method=>'delete' %>
+
+</div>

@@ -1,0 +1,52 @@
+<div align="right">
+<%= link_to("HOME", {:controller => 'users', :action => 'menu'} )%>
+
+
+<%= link_to("BACK", {:controller => 'users',:action => 'home'})%>
+</div>
+	<p>Sign in as </p>
+<div class="Edit User">
+	<h2 align="center" color="blue">Edit User</h2>
+	
+	<%= form_for(:user, :url => {:action => 'update', :id => @user.id}) do |f| %>
+	<table summary="Edit User" align="center">
+		<tr>
+			<th>Name</th>
+			<td><%= f.text_field(:name)%></td>
+		</tr>
+		<tr>
+			<th>Class</th>
+			<td><%= f.text_field(:std)%></td>
+		</tr>
+		<tr>
+			<th>Section</th>
+			<td><%= f.text_field(:sec)%></td>
+		</tr>
+		<tr>
+			<th>Email Id</th>
+			<td><%= f.text_field(:email)%></td>
+		</tr>
+		<tr>
+			<th>Mobile</th>
+			<td><%= f.text_field(:mob)%></td>
+		</tr>
+		<tr>
+			<th>password</th>
+			<td><%= f.password_field(:password)%></td>
+		</tr>
+		<tr>
+			<th>Present</th>
+			<td><%= f.check_box :deleted_flag %></td>
+		</tr>
+		
+		</table>
+		<div class="form_buttons" align="center">
+			<%= submit_tag("Save")%>
+		</div>
+	
+	<% end %>
+</div>
+<div align='center'>
+<%= link_to 'Sign_out', destroy_user_session_path, :method=>'delete' %>
+
+</div>

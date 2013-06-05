@@ -1,0 +1,18 @@
+<div align="right">
+<%= link_to("HOME", {:controller => 'users',:action => 'list'})%>
+<%= link_to("BACK", {:action => 'list'})%>
+</div>
+<div class="Delete student">
+	<p>Sign_in in as </p>
+	<%= form_for(:user, :url => {:action => 'destroy', :id => @user.id }) do |f| %>
+	<p align="center">Are you sure you want to delete "<%= @user.name%>"</p>
+	
+	<div align="center">
+		<%= submit_tag("Delete User")%>
+	</div>
+<%end%>
+</div>
+<div align='center'>
+<%= link_to 'Sign_out', destroy_user_session_path, :method=>'delete' %>
+
+</div>

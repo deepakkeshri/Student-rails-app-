@@ -1,0 +1,44 @@
+<div align="right">
+<%= link_to("HOME", {:controller => 'users', :action => 'menu'} )%>
+<%= link_to("BACK", {:controller => 'users',:action => 'list'})%>
+ </div>
+<p>Sign in as </p>
+<div class="List Users">
+	<h2 align="center">Showing User</h2>
+
+	<table summary="User Detail" border="1" align="center">
+		<tr>
+			<th>Name</th>
+			<td><%= @user.name%></td>
+		</tr>
+		
+		<tr>
+			<th>Class</th>
+			<td><%= @user.std%></td>
+		</tr>
+		<tr>
+			<th>Section</th>
+			<td><%= @user.sec%></td>
+		</tr>
+		<tr>
+			<th>Email Id</th>
+			<td><%= @user.email%></td>
+		</tr>
+		<tr>
+			<th>Mobile</th>
+			<td><%= @user.mob%></td>
+		</tr>
+		<tr>
+			<th>Created</th>
+			<td><%= @user.created_at%></td>
+		</tr>
+		<tr>
+			<th>Updated</th>
+			<td><%= @user.updated_at%></td>
+		</tr>
+		</table>
+</div>
+<div align='center'>
+<%= link_to 'Sign_out', destroy_user_session_path, :method=>'delete' %>
+
+</div>
