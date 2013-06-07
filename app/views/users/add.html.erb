@@ -1,8 +1,8 @@
 
-<div align="right">
-<%= link_to("HOME", {:controller => 'users', :action => 'menu'} )%>
+<div align="left">
+<%= link_to("HOME", {:controller => 'users', :action => 'list'} )%>
 
-<%= link_to("BACK", {:controller => 'users',:action => 'home'})%>
+<%= link_to("BACK", {:controller => 'users',:action => 'list'})%>
 </div>
 <div class="Add user">
 	<h2 align="center">Add User</h2>
@@ -12,6 +12,10 @@
 		<tr>
 			<th>Name</th>
 			<td><%= f.text_field(:name)%></td>
+		</tr>
+		<tr>
+			<th>Role</th>
+			<td><%= f.text_field(:role)%></td>
 		</tr>
 		
 		<tr>
@@ -34,15 +38,14 @@
 			<th>Password</th>
 			<td><%= f.password_field(:password)%></td>
 		</tr>
-		
+		<tr>
+			<th>Present</th>
+			<td><%= f.check_box(:deleted_flag)%></td>
+		</tr>
 		</table>
 		<div class="form_buttons" align="center">
 			<%= submit_tag("Add User")%>
 		</div>
 	
 	<% end %>
-</div>
-<div align='center'>
-<%= link_to 'Sign_out', destroy_user_session_path, :method=>'delete' %>
 
-</div>

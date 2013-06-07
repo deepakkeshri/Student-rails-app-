@@ -50,3 +50,9 @@ a:hover {}
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+span.status{ display:block; width:10px; height:10px;
+  margin: 0.25px auto; padding:0; border:1px solid #000000 }
+span.status.true{background: green; color: green}
+span.status.false{background: red; color: red}

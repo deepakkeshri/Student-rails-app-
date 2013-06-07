@@ -1,8 +1,7 @@
-<div align="right">
-<%= link_to("HOME", {:controller => 'users', :action => 'menu'} )%>
+<div align="left">
+<%= link_to("HOME", {:controller => 'users', :action => 'list'} )%>
 <%= link_to("BACK", {:controller => 'users',:action => 'list'})%>
  </div>
-<p>Sign in as </p>
 <div class="List Users">
 	<h2 align="center">Showing User</h2>
 
@@ -37,8 +36,4 @@
 			<td><%= @user.updated_at%></td>
 		</tr>
 		</table>
-</div>
-<div align='center'>
-<%= link_to 'Sign_out', destroy_user_session_path, :method=>'delete' %>
 
-</div>

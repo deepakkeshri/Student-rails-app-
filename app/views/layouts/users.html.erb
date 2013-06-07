@@ -8,11 +8,20 @@
     <div id="header">
       <h1>Student Database</h1>
     </div>
+    
     <div id="main">
       <div id="content">
+      	<div id="user_nav" align="right">
+  		<% if user_signed_in? %>
+			<p align="right">Signed in as <%= current_user.name%>.Not you?
+			<%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></p>
+  		<% end %>
+  	</div>
         <%= yield %>
+        
       </div>
     </div>
+    
     <div id="footer">
       <p id="copyright">&copy; deepak@tchowklabs.com</p>
     </div>

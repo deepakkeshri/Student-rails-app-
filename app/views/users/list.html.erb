@@ -1,39 +1,55 @@
+<div align="left">
+<%= link_to("HOME", {:controller => 'users', :action => 'list'} )%>
+
+
+<%= link_to("BACK", {:controller => 'users',:action => 'list'})%>
+</div>
 <div align="center">
-<%= link_to("HOME", {:controller => 'users', :action => 'list'} )%> |
-<%= link_to("Add User", {:action => 'add'})%>
+	<% if can? :add_user, :all%>
+	<%= link_to("Add User", {:action => 'add'})%>
+	<% end %>
 </div>
 </br>
-<p>Logged in as </p>
 <table class="listing" summary= "User data" border="1" align="center">
 	<tr style="background-color:#00ff00">
 		<th>Name</th>
+		<th>Role</th>
 		<th>Class</th>
 		<th>Section</th>
 		<th>Email</th>
 		<th>Mobile</th>
 		<th>Present</th>
+		
 		<th>Actions</th>
 	</tr>
 	<% @users.each do |user| %>
 	<tr>
 		<td><%= user.name %></td>
+		<td><%= user.role %></td>
 		<td><%= user.std %></td>
 		<td><%= user.sec %></td>
 		<td><%= user.email %></td>
 		<td><%= user.mob %></td>
-		<td><%= user.deleted_flag%></td>
+		<td><%= status_tag(user.deleted_flag) %></td>
+		
 		<td>
-			<% if can? :update, @user %>
+			<% if can? :add_role, :all%>
+				<%= link_to("Add Role", {:action => 'add_role', :id => user.id})%>
+					
+			<% end %>
+			<% if can? :read, :all%>
+				<%= link_to("Show", {:action => 'show', :id => user.id})%>
+			<% end %>
+			<% if can? :edit, @user %>
 				<%= link_to("Edit", {:action => 'edit', :id => user.id})%>
-			<% end %>	
-			<%= link_to("Show", {:action => 'show', :id => user.id})%>
-			
-			<%= link_to("Delete", {:action => 'delete', :id => user.id})%>
+			<% end %>
+			<% if can? :del, user %>
+				<%= link_to("Delete", {:action => 'delete', :id => user.id})%>	
+			<% end %>
 		</td>
+		
+		
 	</tr>
 	<% end %>
 </table>
-<div align='center'>
-<%= link_to 'Sign_out', destroy_user_session_path, :method=>'delete' %>
 
-</div>

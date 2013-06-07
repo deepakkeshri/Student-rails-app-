@@ -1,7 +1,10 @@
 #require 'digest/sha1'
 class UsersController < ApplicationController
   
-  load_and_authorize_resource :except => :menu
+  
+  load_and_authorize_resource :except => [ :menu, :list,:edit,:delete,:add,:create,:update,:destroy]
+  before_filter :authenticate_user! ,:except => :menu 
+  
   
   def index
      render(:action => 'menu')
@@ -28,6 +31,7 @@ class UsersController < ApplicationController
   end
   
   def sign_in
+    @userlogged=User.find(params[:id])
     render('list')
   end
 
@@ -43,7 +47,12 @@ class UsersController < ApplicationController
      @user=User.find(params[:id ])
   end
   
+  def add_role
+    @user=User.find(params[:id ])
+  end
+  
   def list
+    #authorize! :read, @user, :message=> 'Not authorizea as an admin'
     @users=User.order("users.name ASC")
   end
   

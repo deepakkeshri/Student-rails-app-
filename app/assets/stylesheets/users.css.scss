@@ -14,8 +14,8 @@ light brown:  #4C2516
 
 html { height: 100%; width: 100%; }
 body { width: 100%; min-width: 980px; height: 50%; margin: 0; padding: 0; 
-  font: 20px Arial; color: #ff00ff; }
-p, td, ul, ol, li, dl, dt, dd { color: #ff00ff;text-align: center;
+  font: 20px Arial; color: #ff88ff; }
+p, td, ul, ol, li, dl, dt, dd { color: #123456;text-align: center;
   font-family: sans-serif; }
   th{color: #000000;text-align: center;}
 img { border: none; height: 75%; width: 50%; horizontal-align: right;
@@ -31,9 +31,17 @@ a:hover {}
 #main { min-height: 500px; background: #F2DC87; }
 #content { padding: 10px; }
 #footer { clear: both; height: 2.5em; text-align: right;
-  background: #4C2516; color: #F2DC87; }
+  background: #4C2516; color: #F70C87; }
+#copyright{background: #4C2516; color: #F78487;}
 /* Content */
 #content h2 { color: #4C2516; }
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+span.status{ display:block; width:10px; height:10px;
+  margin: 0.25px auto; padding:0; border:1px solid #000000 }
+span.status.true{background: #00ff00; color: #00ff00}
+span.status.false{background: #ff0000; color: #ff0000}
+
+
+

@@ -4,11 +4,12 @@ class DeviseCreateUsers < ActiveRecord::Migration
       ## Database authenticatable
       t.integer :user_id
       t.string :name , :null => false
+      t.string :role , :default => "student"
       t.string :std , :null => false
       t.string :sec , :null => false
       t.string :mob , :null => false
       t.boolean :deleted_flag, :default => "false"
-      t.string :email, :null => false, :default => "something@nothing.com"
+      t.string :email, :null => false
       ##t.string :password , :null => false
       t.string :encrypted_password, :null => false, :error =>"wrong"
       ## Recoverable
