@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
   rolify #:name_cname => 'user',:before_add => :before_add_method
   #user.add_role :admin
   
+  ROLES= %w[admin teacher student]
   
   #def before_add_method(role)
     #user.add_role :student

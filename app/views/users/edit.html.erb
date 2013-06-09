@@ -37,7 +37,7 @@
 			<th>password</th>
 			<td><%= f.password_field(:password)%></td>
 		</tr>
-		<% if can? :role, @user %>
+		<% if current_user.role != "Student" %>
 		<tr>
 			<th>Present</th>
 			<td><%= f.check_box :deleted_flag %></td>

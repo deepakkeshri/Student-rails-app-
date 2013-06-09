@@ -41,10 +41,19 @@
 				<%= link_to("Show", {:action => 'show', :id => user.id})%>
 			<% end %>
 			<% if can? :edit, @user %>
+			<% if user.role != "Admin" || current_user.role=="Admin"%>
 				<%= link_to("Edit", {:action => 'edit', :id => user.id})%>
 			<% end %>
-			<% if can? :del, user %>
+			<% end %>
+			<% if can? :edit1, user %>
+			<% if current_user.role!="Admin"%>
+				<%= link_to("Edit", {:action => 'edit', :id => user.id})%>
+			<% end %>
+			<% end %>
+			<% if can? :del, @user %>
+			<% if user.role != "Admin" || current_user.role=="Admin"%>
 				<%= link_to("Delete", {:action => 'delete', :id => user.id})%>	
+			<% end %>
 			<% end %>
 		</td>
 		

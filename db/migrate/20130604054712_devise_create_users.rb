@@ -4,7 +4,7 @@ class DeviseCreateUsers < ActiveRecord::Migration
       ## Database authenticatable
       t.integer :user_id
       t.string :name , :null => false
-      t.string :role , :default => "student"
+      t.string :role
       t.string :std , :null => false
       t.string :sec , :null => false
       t.string :mob , :null => false

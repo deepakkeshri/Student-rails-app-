@@ -67,6 +67,27 @@ class UsersController < ApplicationController
     
   end
   
+   def role
+    @user = User.find(params[:id])
+    @user.update_attributes(params[:user])
+  
+    if (@user.role== "Admin")
+      @user.role_ids=1
+   else if (@user.role== "Teacher")
+      @user.role_ids=2
+     else
+       @user.role_ids=3
+     end
+    end
+    if @user.update_attributes(params[:user])
+      redirect_to(:action => 'list' )
+    else
+      flash[:notice]= "Something Went Wrong"
+      render('edit')
+    end
+    
+  end
+  
   def destroy
     user = User.find(params[:id])
     user.destroy
