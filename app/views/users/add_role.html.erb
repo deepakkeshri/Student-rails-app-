@@ -1,0 +1,16 @@
+<div class="home" align="left">
+<%= link_to("HOME", {:controller => 'users', :action => 'list'} )%>
+<%= link_to("BACK", {:controller => 'users',:action => 'list'})%>
+</div>
+<p>Assign  <%= @user.name%> as</p>
+<%= form_for(:user, :url => {:action => 'role', :id => @user.id}) do |f| %>
+	
+	<p>Admin<%= f.radio_button(:role,"Admin") %></p></br>
+	<p>Teacher<%= f.radio_button(:role, "Teacher") %></p></br>
+	<p>Student<%= f.radio_button(:role,"Student") %></p>
+
+		
+		<div class="form_buttons" align="center">
+			<%= submit_tag("Save")%>
+		</div>
+<% end %>	
